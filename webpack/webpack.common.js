@@ -6,6 +6,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     background: ['@babel/polyfill', Path.resolve(__dirname, '../src/js/background.ts')],
+    content: ['@babel/polyfill', Path.resolve(__dirname, '../src/js/content.ts')],
+    content_index: ['@babel/polyfill', Path.resolve(__dirname, '../src/js/content_index.ts')],
+    content_container: ['@babel/polyfill', Path.resolve(__dirname, '../src/js/content_container.ts')],
     popup: ['@babel/polyfill', Path.resolve(__dirname, '../src/js/popup/index.tsx')],
   },
   node:{ fs: 'empty' },

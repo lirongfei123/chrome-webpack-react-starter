@@ -1,6 +1,6 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "name":"ChromePlugin",
+  "name":"xiaoyouxi_download",
   "version": "1.0.0",
   "manifest_version": 2,
   "description": "ChromePlugin",
@@ -20,8 +20,26 @@
       "default_popup": "popup.html"
   },
   "content_scripts": [
+    {
+        "matches": ["https://*.poki-gdn.com/*"],
+        "run_at":"document_end",
+        "all_frames":true,
+        "js": ["dest/content.js"]
+    },
+    {
+        "matches": ["https://games.poki.com/*"],
+        "run_at":"document_end",
+        "all_frames":true,
+        "js": ["dest/content_container.js"]
+    },
+    {
+        "matches": ["https://poki.com/", "https://poki.com/*"],
+        "run_at":"document_end",
+        "all_frames":true,
+        "js": ["dest/content_index.js"]
+    }
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://XXX; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://*/*; object-src 'self'",
   "web_accessible_resources":[
       "dest/*",
       "imgs/*",
